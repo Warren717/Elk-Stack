@@ -4,14 +4,16 @@ The files in this repository were used to configure the network depicted below.
 
 ![Elk Diagram](./Diagrams/Finished_ELK_Diagram.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat. 
 
-  ![Install_Elk](./Ansible/Install-Elk.yml)
+- All three playbooks below can be found in the "Ansible" Folder.
+
+  - Install-Elk.yml
   - filebeat-playbook.yml
   - metricbeat-playbook.yml
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -27,7 +29,7 @@ Load balancing ensures that the application will be highly available, in additio
 
 What aspect of security do load balancers protect?
 
-- Load Balancers defend an organization again distributed denial-of-serivce (DDoS) attacks. It does this by shifting attack traffic from the corporate server to a public cloud provider.
+- Load Balancers defend an organization against distributed denial-of-serivce (DDoS) attacks. It does this by shifting attack traffic from the corporate server to a public cloud provider.
 
 What is the advantage of a jump box?
 
@@ -60,15 +62,15 @@ The machines on the internal network are not exposed to the public Internet.
 
 Only the jump box provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 
-- Add whitelisted IP addresses
+- Added whitelisted IP address:
 
   - 5061 Kibana Port
 
 Machines within the network can only be accessed by the jump box provisioner.
 
-Which machine did you allow to access your ELK VM? What was its IP address?
+Which machine did you allow to access your ELK-VM? What was its IP address?
 
-- The IP address of the machine that I allowed to access the ELK VM was: Workstation IP
+- The IP address of the machine that I allowed to access the ELK-VM was: Workstation IP
 
 A summary of the access policies in place can be found in the table below.
 
@@ -86,14 +88,15 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 What is the main advantage of automating configuration with Ansible?
 
-- Flexible: You can orchestrate the entire application enviroment no matter where it is deployed. You can also customize it based upon your needs.
+- Flexibility: You can orchestrate the entire application enviroment no matter where it is deployed. You can also customize it based upon your needs.
 
-- Agentless: You do not need to install any other software of firewall ports on the client systems you want to automate.
+- Agentless: No other software or firewall ports need to be installed on the client systems you want to automate.
 
+### Installing Elk Playbook
 
-The playbook implements the following tasks: 
+- The playbook implements the following tasks: 
 
-- Install Docker, install Python, Install Docker Python:
+  - Install Docker, install Python, install Docker Python:
 
 
 ~~~
@@ -166,7 +169,7 @@ These Beats allow us to collect the following information from each machine:
 
 - Filebeat: Monitors the log directories or specific log files and forwards them either to Elasticsearch or Logstash for indexing.
 
-- Metric Beat: Collects statistics and metrics of the system. We can monitor system health, CPU, and memory usage of the system we are working on.
+- Metric Beat: Collects statistics and metrics of the system. We can monitor system health, CPU, and memory usage of the system we are working on. The statistics can also be forwarded to an output of choice.
 
 
 ### Using the Playbook
@@ -184,7 +187,7 @@ Which file is the playbook? Where do you copy it?
 
 - Playbook file: "filebeat-playbook.yml"
 
-- Copy ".yml" file inside of the home directory in a custom folder
+- Copy the ".yml" file inside of the home directory into a custom folder
 
 Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
 
